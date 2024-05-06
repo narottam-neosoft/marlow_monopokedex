@@ -1,0 +1,24 @@
+.back-container{
+  text-align: left;
+  margin: 1rem
+}
+.card-container{
+  display: grid; 
+  place-content: center
+}
+
+.back {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back:hover {
+  background-color: #0056b3;
+}

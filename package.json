@@ -1,0 +1,28 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "yarn install && lerna bootstrap",
+    "compile:utils": "lerna run --scope @pokedex/utils --stream rollup",
+    "compile:components": "lerna run --scope @pokedex/components --stream rollup",
+    "compile": "yarn compile:utils && yarn compile:components",
+    "lint": "lerna run lint --stream",
+    "test": "lerna run test --stream --parallel",
+    "dev": "lerna run --scope pokedex dev ",
+    "build": "lerna run --scope pokedex --stream build",
+    "prod": "lerna run --scope pokedex start ",
+    "prepare": "husky install",
+    "lerna-dockerize": "lerna-dockerize"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.3",
+    "husky": "^8.0.0",
+    "lerna": "^6.6.2"
+  },
+  "dependencies": {
+    "lerna-dockerize": "^1.0.9"
+  }
+}

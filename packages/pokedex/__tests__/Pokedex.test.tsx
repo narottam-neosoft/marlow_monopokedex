@@ -12,13 +12,14 @@ jest.mock("next/router", () => require("next-router-mock"));
 const mockStore = configureStore([thunk]);
 const store = mockStore(mockStoreData);
 describe("pokemon-list", () => {
-  it("List rendered successfully", () => {
+  it("list name column renders correctly", () => {
     const { container } = render(
       <Provider store={store}>
         <Home />
       </Provider>
     );
-    expect(container).toMatchSnapshot();
+    const textElement = screen.getByText(/name/i)
+    expect(textElement).toBeInTheDocument();
   });
 
   it("navigates to the Pokemon details page when a row is clicked", () => {

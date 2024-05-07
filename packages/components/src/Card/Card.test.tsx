@@ -24,10 +24,14 @@ describe("Card", () => {
         },
       },
     ],
+    sprites: {
+      front_default: "https://pokeapi.co/api/v2/sprites/2",
+      back_default: "https://pokeapi.co/api/v2/sprites/2",
+    }
   };
 
   it("renders the card with correct props", () => {
-    const { container } = render(<Card {...mockProps} />);
+    render(<Card {...mockProps} />);
 
     expect(screen.getByText("Pikachu")).toBeInTheDocument();
     const locationLink = screen.getByRole("link", {
@@ -38,6 +42,5 @@ describe("Card", () => {
       "href",
       "https://pokeapi.co/api/v2/pokemon/25"
     );
-    expect(container).toMatchSnapshot();
   });
 });

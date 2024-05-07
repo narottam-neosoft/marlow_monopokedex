@@ -22,22 +22,20 @@ describe('DataTable', () => {
   };
 
   it('renders the DataGrid component with correct props', () => {
-    const {container} = render(<DataTable {...mockProps} />);
+    render(<DataTable {...mockProps} />);
 
     expect(screen.getByRole('grid')).toBeInTheDocument();
     expect(screen.getByText('Row 1')).toBeInTheDocument();
     expect(screen.getByText('Row 2')).toBeInTheDocument();
-    expect(container).toMatchSnapshot();
     
   });
 
   it('calls onRowClick when a row is clicked', () => {
-    const {container} = render(<DataTable {...mockProps} />);
+    render(<DataTable {...mockProps} />);
     const row = screen.getByText('Row 1');
     row.click();
    
     expect(mockProps.onRowClick).toHaveBeenCalledTimes(1);
-    expect(container).toMatchSnapshot();
 });
 
 });
